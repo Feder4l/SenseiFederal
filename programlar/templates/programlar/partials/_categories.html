@@ -1,0 +1,19 @@
+<div class="list-group">
+  <a href="/programlar" class="list-group-item list-group-item-action">Tüm Antrenman Programları</a>
+  {% for category in categories %}
+       <a href="{% url 'programlar_by_category' category.slug %}"
+          class="list-group-item list-group-item-action {% if seciliKategori == category.slug %}active{% endif %}">
+          {{ category.name|title }}
+       </a>
+  {% endfor %}
+</div>
+
+<style>
+  /* styles.css */
+  .list-group-item.active {
+      background-color: #000000; /* Siyah arka plan rengi */
+      color: white;              /* Beyaz yazı rengi */
+      border-color: #000000;     /* Sınır rengini de siyah yap */
+  }
+
+</style>

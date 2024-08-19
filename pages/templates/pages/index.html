@@ -1,0 +1,131 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}
+    Anasayfa
+{% endblock page_title %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa - Sensei Federal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<style>
+    /* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    margin: 10px 0;
+}
+
+a.btn {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a.btn:hover {
+    background: #555;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+}
+</style>
+<body>
+    <header>
+        <h1>Sensei Federal</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Ana Sayfa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Hoş Geldiniz!</h2>
+            <p>Sensei Federal dövüş sporları merkezine hoş geldiniz. Burada Boks, Kickboks, Muay thai ve daha birçok dövüş sanatı disiplininde eğitim alabilirsiniz.</p>
+            <p>Profesyonel eğitmenlerimiz ve kapsamlı programlarımızla her seviyede sporcuya uygun eğitimler sunuyoruz. Hedefimiz, dövüş sporlarının fiziksel ve zihinsel faydalarını yayarak, öğrencilerimize disiplin, saygı ve özgüven kazandırmaktır.</p>
+            <p>Hakkımızda Daha Fazla Bilgi Alın</p>
+        </section>
+        <section>
+            <h2>Ders Programları</h2>
+            <p>Sensei Federal'de her yaş ve seviyeye uygun ders programları bulunmaktadır. Yeni başlayanlar için temel eğitimlerden, ileri seviyedeki sporcular için profesyonel gelişim programlarına kadar geniş bir yelpazede eğitimler sunuyoruz.</p>
+            <p>Programlarımız hakkında daha fazla bilgi almak için bizimle iletişime geçin veya sitemizdeki ders programları bölümüne göz atın.</p>
+            <a href="{% url 'index' %}" class="btn">Bizimle İletişime Geçin</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sensei Federal. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
+
+{% endblock content %}
+

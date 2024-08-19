@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensei Federal | Kayıt Ol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: none;
+        }
+        body {
+            background: #444; /* Antrasit tonu */
+            font-family: 'Poppins', sans-serif;
+        }
+        .register__forms {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .register__box {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 1rem;
+            width: 450px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .register__box input {
+            border: none;
+            outline: none;
+            padding: 8px 14px;
+            width: 100%;
+        }
+        .btn-register {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #222; /* Siyaha yakın ton */
+            color: #fff;
+            padding: 14px;
+            width: 12rem;
+            box-shadow: 4px 4px #000; /* Siyah */
+            cursor: pointer;
+            transition: transform 300ms;
+        }
+        .btn-register:hover {
+            transform: translateY(7px);
+        }
+        .btn-register span {
+            padding-left: 10px;
+        }
+        .fs-20 {
+            font-size: 24px;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .links a {
+            margin: 0.5rem 0;
+            color: #fff; /* Koyu mavi */
+            text-decoration: none;
+            transition: color 300ms;
+            font-weight: bold; /* Kalın font */
+        }
+        .links a:hover {
+            color: #ccc; /* Açık mavi */
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="register__forms">
+        {% if error %}
+            <div class="alert alert-danger">
+                {{msg}}
+            </div>
+        {% endif %}
+        <form method="post" action="{% url 'user_register' %}">
+            {% csrf_token %}
+            <div class="register__box">
+                <ion-icon class="fs-20" name="person-outline"></ion-icon>
+                <input type="text" name="username" placeholder="Kullanıcı adı" autocomplete="off">
+            </div>
+            <div class="register__box email">
+                <ion-icon class="fs-20" name="mail-outline"></ion-icon> <!-- Email simgesi -->
+                <input type="email" name="email" placeholder="Email">
+            </div>
+            <div class="register__box">
+                <ion-icon class="fs-20" name="lock-closed-outline"></ion-icon>
+                <input id="password" type="password" name="password" placeholder="Şifre">
+                <button type="button" id="togglePassword" onclick="togglePasswordVisibility()">
+                    <ion-icon name="eye-outline"></ion-icon> <!-- Göz simgesi -->
+                </button>
+            </div>
+            <div class="register__box">
+                <ion-icon class="fs-20" name="lock-closed-outline"></ion-icon>
+                <input id="repassword" type="password" name="repassword" placeholder="Şifreyi tekrarla">
+                <button type="button" id="toggleRePassword" onclick="toggleRePasswordVisibility()">
+                    <ion-icon name="eye-outline"></ion-icon> <!-- Göz simgesi -->
+                </button>
+            </div>
+            <button type="submit" class="btn-register">
+                <ion-icon name="person-add-outline"></ion-icon>
+                <span>Kayıt Ol</span>
+            </button>
+        </form>
+        <div class="links">
+            <a href="{% url 'user_login' %}">Hesabınız varsa buradan giriş yapın</a>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            var toggleButton = document.getElementById("togglePassword");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleButton.innerHTML = '<ion-icon name="eye-off-outline"></ion-icon>'; // Gözü kapatma simgesi
+            } else {
+                passwordField.type = "password";
+                toggleButton.innerHTML = '<ion-icon name="eye-outline"></ion-icon>'; // Gözü açma simgesi
+            }
+        }
+
+        function toggleRePasswordVisibility() {
+            var repasswordField = document.getElementById("repassword");
+            var toggleButton = document.getElementById("toggleRePassword");
+
+            if (repasswordField.type === "password") {
+                repasswordField.type = "text";
+                toggleButton.innerHTML = '<ion-icon name="eye-off-outline"></ion-icon>'; // Gözü kapatma simgesi
+            } else {
+                repasswordField.type = "password";
+                toggleButton.innerHTML = '<ion-icon name="eye-outline"></ion-icon>'; // Gözü açma simgesi
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensei Federal | {% block page_title %}{% endblock page_title %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS styles */
+        body {
+            background-color: white; /* Beyaz arka plan rengi */
+            color: black; /* Siyah metin rengi */
+        }
+        .navbar {
+            background-color: #999; /* Gri tonlarından bir navbar arka plan rengi */
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: black; /* Siyah navbar marka metin rengi */
+        }
+        .navbar-nav .nav-link {
+            color: black; /* Siyah navbar link metin rengi */
+        }
+        .list-group-item {
+            background-color: #999; /* Gri tonlarından bir list group item arka plan rengi */
+            color: black; /* Siyah list group item metin rengi */
+            border-color: white; /* Belirgin beyaz çizgi rengi */
+            font-weight: bold; /* Kalın font */
+        }
+        
+        .list-group-item:hover {
+            background-color: #777; /* List group item hover arka plan rengi */
+        }
+    </style>
+</head>
+<body>
+   
+    <!-- Navbar -->
+    {% include 'partials/_nav.html' %}
+
+    {% block content %} {% endblock content %}
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

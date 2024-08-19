@@ -1,0 +1,18 @@
+{% load static %}
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-4">
+            <img class="img-fluid rounded-start" src="{% static "programlar/img/"|add:program.imageUrl %}" alt="{{course.title}}">
+        </div>
+        <div class="col-8">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url "program_details" program.slug %}">
+                        {{program.title}}
+                     </a>
+                </h5>
+                <p class="card-text">{{program.description}}</p>
+            </div>
+        </div>
+    </div> 
+</div>
